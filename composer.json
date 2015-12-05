@@ -1,0 +1,28 @@
+{
+    "name": "SimpleTYPO3/document-node-type",
+    "config": {
+        "preferred-install": "dist"
+    },
+    "description": "pages as Document Node Type",
+    "require": {
+        "fluidtypo3/flux": "*",
+        "fluidtypo3/vhs": "*",
+        "fluidtypo3/fluidcontent_core": "*"
+    },
+    "require-dev": {
+        "fluidtypo3/flux": "dev-development",
+        "fluidtypo3/vhs": "dev-development",
+        "fluidtypo3/fluidcontent_core": "dev-development",
+        "fluidtypo3/development": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SimpleTYPO3\\DocumentNodeType\\": "Classes/"
+        }
+    },
+    "preferred-install": "dist",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0+",
+    "version": "0.0.1"
+
+}
