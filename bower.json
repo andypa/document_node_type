@@ -1,0 +1,8 @@
+{
+  "name": "document_node_type",
+  "version": "0.0.1",
+  "ignore": [],
+  "dependencies": {
+    "bootstrap-switch": "3.3.2"
+  }
+}

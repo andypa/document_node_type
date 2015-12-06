@@ -4,46 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 
-//$GLOBALS['TCA']['tt_content']['ctrl']['formattedLabel_userFunc'] = \SimpleTYPO3\ContentNodeType\Hooks\Labels::class . '->propertiesBasedTitle';
-//
-//$GLOBALS['TCA']['tt_content']['ctrl']['label_userFunc'] = \SimpleTYPO3\ContentNodeType\Hooks\Labels::class . '->propertiesBasedTitle';
-//
-//
-//$GLOBALS['TCA']['tt_content']['types']['list']['showitem'] = '
-//        --div--;Properties,
-//                list_type;LLL:EXT:cms/locallang_ttc.xlf:list_type_formlabel,
-//                select_key;LLL:EXT:cms/locallang_ttc.xlf:select_key_formlabel,
-//                pages;LLL:EXT:cms/locallang_ttc.xlf:pages.ALT.list_formlabel,
-//                recursive,
-//        --div--;Common Properties,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-//        --div--;Content Node Properties,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-//		        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,rowDescription,
-//        --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-//        --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
-//';
-//
-//
-//
-//$GLOBALS['TCA']['tt_content']['types']['fluidcontent_content']['showitem'] = '
-//        --div--;Properties,
-//                pi_flexform,
-//        --div--;Common Properties,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.frames;frames,
-//        --div--;Content Node Properties,
-//               --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
-//		        --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,rowDescription,
-//        --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.visibility;visibility,
-//                --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
-//        --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended
-//';
-//        'document_node_properties' => array(
-//            'showitem' => 'doktype;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.doktype_formlabel,module;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.module_formlabel,is_siteroot;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.is_siteroot_formlabel, no_search;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.no_search_formlabel, editlock;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.editlock_formlabel, php_tree_stop;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.php_tree_stop_formlabel',
-//        ),
+
 $GLOBALS['TCA']['pages']['palettes'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtility::mergeRecursiveOverrule(
     $GLOBALS['TCA']['pages']['palettes'],
     [
@@ -55,10 +16,31 @@ $GLOBALS['TCA']['pages']['palettes'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUt
 					keywords;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.keywords_formlabel,
 					description;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.description_formlabel',
         ],
+		'compact_visibility' => [
+			'showitem' => '
+					hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.hidden_formlabel,
+            		nav_hide;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_hide_formlabel
+            		'
+		],
         'document_title' => [
-            'showitem' => 'title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.title_formlabel,
-					nav_title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title_formlabel',
+            'showitem' => '
+            		title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.title_formlabel,
+					nav_title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title_formlabel,
+					hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.hidden_formlabel,
+            		nav_hide;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_hide_formlabel
+					',
         ],
+		'path' => [
+			'showitem' => '	tx_realurl_pathsegment,
+							tx_realurl_pathoverride,
+							tx_realurl_exclude,
+							tx_realurl_nocache,
+							--linebreak--,
+							url_scheme;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.url_scheme_formlabel,
+							target;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.target_formlabel,
+							alias;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.alias_formlabel,
+							',
+		],
     ]
 );
 
@@ -76,10 +58,8 @@ $GLOBALS['TCA']['pages']['types'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtili
 	       			tx_fed_page_flexform,
 					categories,
 					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.media;media,
-				--div--;URL Properties,
-					tx_realurl_pathsegment;;137;;,tx_realurl_exclude,
-					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.links;links,
-        		--div--;Meta Properties,
+				--div--;SEO Properties,
+					--palette--;Path;path,
 					--palette--;Meta content;meta_area,
 					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.editorial;editorial,
 				--div--;Document Node Properties,
@@ -89,8 +69,6 @@ $GLOBALS['TCA']['pages']['types'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtili
 					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.config;config,
 
 				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
-					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.visibility;visibility,
-					--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access,
 				--div--;Sub documents,
 					tx_fed_page_controller_action_sub,tx_fed_page_flexform_sub,
 
