@@ -12,28 +12,28 @@ if ('BE' === TYPO3_MODE) {
     );
 }
 
-$GLOBALS['TCA']['pages']['columns'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtility::mergeRecursiveOverrule(
-    $GLOBALS['TCA']['pages']['columns'],
-    [
-        'tx_fed_page_controller_action' => [
-            'exclude' => 1,
-            'label' => 'Document Type',
-            'config' => [
-                'type' => 'user',
-                'userFunc' => \SimpleTYPO3\DocumentNodeType\Backend\PageLayoutSelector::class.'->renderField',
-            ],
-        ],
-        'tx_fed_page_controller_action_sub' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:fluidpages/Resources/Private/Language/locallang.xlf:pages.tx_fed_page_controller_action_sub',
-            'config' => [
-                'type' => 'user',
-                'userFunc' => \SimpleTYPO3\DocumentNodeType\Backend\PageLayoutSelector::class.'->renderField',
-            ],
-        ],
-
-    ]
-);
+//$GLOBALS['TCA']['pages']['columns'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtility::mergeRecursiveOverrule(
+//    $GLOBALS['TCA']['pages']['columns'],
+//    [
+//        'tx_fed_page_controller_action' => [
+//            'exclude' => 1,
+//            'label' => 'Document Type',
+//            'config' => [
+//                'type' => 'user',
+//                'userFunc' => \SimpleTYPO3\DocumentNodeType\Backend\PageLayoutSelector::class.'->renderField',
+//            ],
+//        ],
+//        'tx_fed_page_controller_action_sub' => [
+//            'exclude' => 1,
+//            'label' => 'LLL:EXT:fluidpages/Resources/Private/Language/locallang.xlf:pages.tx_fed_page_controller_action_sub',
+//            'config' => [
+//                'type' => 'user',
+//                'userFunc' => \SimpleTYPO3\DocumentNodeType\Backend\PageLayoutSelector::class.'->renderField',
+//            ],
+//        ],
+//
+//    ]
+//);
 $columns = [
     'php_tree_stop',
     'editlock',
