@@ -37,7 +37,7 @@ class PageLayoutSelector extends \FluidTYPO3\Fluidpages\Backend\PageLayoutSelect
 						<div class="media">
   							<img class="img-responsive  media-object" src="%s" alt="%s" /><br />
 							<div class="media-body">
-								<input class="hidden" type="checkbox" value="%s" %s name="%s" %s />
+								<input class="hidden" type="radio" value="%s" %s name="%s" %s />
 								<h4 class="media-heading text-center">%s</h4>
 							</div>
 					</div>
