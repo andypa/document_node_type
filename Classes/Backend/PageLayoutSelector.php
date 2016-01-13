@@ -160,7 +160,7 @@ class PageLayoutSelector extends \FluidTYPO3\Fluidpages\Backend\PageLayoutSelect
 				}
 
 			}  elseif (FALSE === empty($removeItems)) {
-				if (TRUE === in_array($optionValue, $removeItems)) {
+				if (FALSE === in_array($optionValue, $removeItems)) {
 					$selector .= $option . LF;
 				}
 
