@@ -41,7 +41,6 @@ $GLOBALS['TCA']['pages']['types'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtili
         // normal
         (string)\TYPO3\CMS\Frontend\Page\PageRepository::DOKTYPE_DEFAULT => [
             'showitem' => '
-
         		--div--;Properties,
         			--palette--;Document Title;document_title,
 	       			tx_fed_page_controller_action,
