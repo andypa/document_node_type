@@ -70,7 +70,9 @@ $GLOBALS['TCA']['pages']['palettes'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUt
         ],
         'document_title' => [
             'showitem' => 'title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.title_formlabel,
-					nav_title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title_formlabel',
+					nav_title;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_title_formlabel,
+					hidden;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.hidden_formlabel,
+            		nav_hide;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.nav_hide_formlabel',
         ],
         'path' => [
             'showitem' => '	tx_realurl_pathsegment,
