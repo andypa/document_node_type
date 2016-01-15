@@ -49,10 +49,18 @@ $columns = [
     'tx_realurl_nocache',
 ];
 foreach ($columns as $column) {
-    $GLOBALS['TCA']['pages']['columns'][$column]['config']['renderType'] = 'bootstrapSwitchElement';
+	$GLOBALS['TCA']['pages']['columns'][$column]['config']['renderType'] = 'bootstrapSwitchElement';
 
-    $GLOBALS['TCA']['pages']['columns'][$column]['config']['type'] = 'input';
-    unset($GLOBALS['TCA']['pages']['columns'][$column]['config']['items']);
+	$GLOBALS['TCA']['pages']['columns'][$column]['config']['type'] = 'input';
+	unset($GLOBALS['TCA']['pages']['columns'][$column]['config']['items']);
+
+	if(isset($GLOBALS['TCA']['pages_language_overlay']['columns'][$column])) {
+		$GLOBALS['TCA']['pages_language_overlay']['columns'][$column]['config']['renderType'] = 'bootstrapSwitchElement';
+
+		$GLOBALS['TCA']['pages_language_overlay']['columns'][$column]['config']['type'] = 'input';
+		unset($GLOBALS['TCA']['pages_language_overlay']['columns'][$column]['config']['items']);
+	}
+
 }
 $GLOBALS['TCA']['pages']['columns']['tx_fed_page_flexform']['label'] = 'Document Properties';
 
@@ -229,3 +237,5 @@ $GLOBALS['TCA']['pages']['types'] = \FluidTYPO3\Flux\Utility\RecursiveArrayUtili
         ],
     ]
 );
+
+//$GLOBALS['TCA']['pages_language_overlay']  = $GLOBALS['TCA']['pages'] ;
